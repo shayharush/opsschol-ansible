@@ -12,18 +12,17 @@
       yum:
         name: mysql-server
         state: present
-      when: ansible_distribuition == "CentOS"
 
-    - name: install mysql server for ubuntu 
-      apt:
-        name: mysqlserver
-      when: ansible_distribuition == "Ubuntu"
+#   example for package installation if we're on Ubuntu   
+#    - name: install mysql server for ubuntu 
+#      apt:
+#        name: mysqlserver
+#      when: ansible_distribuition == "Ubuntu"
 
 
     - name: disable selinux
       selinux:
         state: disabled
-      when: ansible_distribuition == "CentOS"
 
 
     - name: Add innodb_buffer_pool_size to my.cnf
